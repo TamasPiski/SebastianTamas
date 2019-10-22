@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+div#container {
+  padding: 5em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin: 0 auto;
+  width: 80%;
+}
+
+div#container div.player {
+  background-color: red;
+  height: 500px;
+  width: 350px;
+  position: relative;
+}
+
+div#container div.player h2 {
+  text-align: center;
+  background-color: black;
+  color: white;
+  padding: 0.25em 1em;
+  border: 1px solid white;
+}
+
+div#container div.player button {
+  width: 100%;
+  padding: 1em;
+  position: absolute;
+  bottom: 0;
+}
+
+div#container div:nth-of-type(2) {
+  background-color: green;
+}
+
+div#container div:nth-of-type(3) {
+  background-color: yellow;
+}
+
+div#container div:nth-of-type(4) {
+  background-color: purple;
+}
+/*# sourceMappingURL=main.css.map */
