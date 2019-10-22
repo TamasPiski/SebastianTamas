@@ -21,30 +21,43 @@ function shuffle(array) {
     }
   
     return array;
-  }
-let div = document.getElementById("div"); 
+  } 
+let showCardBtn = $("<button>Next Card</button>").on("click", showCard);
+$("#points").after(showCardBtn);
+let points = 0;
 
 function showCard(){
-        div.innerHTML += `
+        let div = $("<div></div>").html(`
         <div>${cards[0].value} of ${cards[0].color}</div> 
-        `
-        cards.splice(0, 1)
-    
+        `).addClass("card");
+        $(".cardContainer").append(div);
+        let cardIcon = $("<img>").attr("src",`./img/${cards[0].color}.png`);
+        div.append(cardIcon);
+        if (isNaN(cards[0].value) == true){
+            // if(cards[0].value == "Ace"){
+
+            // }
+            cards[0].value = 10;
+        }
+        
+        points = parseInt(cards[0].value) + points;
+        document.getElementById("points").innerHTML = points;
+        cards.splice(0, 1);
 }
 
 let cards = [];
 let colors = ["hearts", "spades", "diamonds", "clubs"];
-let values = ["Ace", "King", "Queen","Jack", "10", "9","8", "7", "6", "5", "4", "3", "2"];
+let values = ["Ace", "King", "Queen", "Jack", "10", "9", "8", "7", "6", "5", "4", "3", "2"];
+
 
 for (i= 0; i < 4;i++) {
     for (x=0; x < 13;x++){
         let new_card = new Card(colors[i], values[x])
-        cards.push(new_card)
+        cards.push(new_card);
+        
     }
 }
 
-
 shuffle(cards)
-console.log(cards)
-showCard()
-console.log(cards)
+
+
